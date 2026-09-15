@@ -1,0 +1,26 @@
+cff-version: 1.2.0
+message: "If you use Torus in your research, please cite it as below."
+title: "Torus: A Configurable Systolic Array Generator in SpinalHDL"
+abstract: >-
+  Torus is a hardware generator for systolic arrays written in SpinalHDL.
+  It supports three dataflow patterns (input stationary, weight stationary,
+  and output stationary), signed and unsigned integer arithmetic, and freely
+  configurable array dimensions and port bit widths.
+type: software
+authors:
+  - family-names: Lee
+    given-names: Jooyeon
+    email: jooyeon@dgist.ac.kr
+    affiliation: "Daegu Gyeongbuk Institute of Science and Technology (DGIST)"
+repository-code: "https://github.com/jooyeon111/torus"
+url: "https://github.com/jooyeon111/torus"
+license: MIT
+version: 1.0.0
+date-released: "2026-08-12"
+keywords:
+  - systolic array
+  - hardware accelerator
+  - SpinalHDL
+  - hardware generator
+  - matrix multiplication
+  - dataflow

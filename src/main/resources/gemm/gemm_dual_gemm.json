@@ -1,0 +1,7 @@
+{
+  "_comment": "Normal-GEMM (M > 1) shapes for the Toroidal DualMode array driven through the STOCK tiled schedule, no accumulator. Every tile is validated on its own, so nothing here has to divide an accumulator panel — the shapes only need to exceed the array's tile capacity in each dimension so the multi-tile path is covered. The widest config in 5.toroidal_dual_mode.json has 16 output ports and a 16-deep contraction pass, so 16x16x16 fills it exactly while 8x8x16 leaves the broadcast configs partly filled (padding path).",
+  "gemms": [
+    { "name": "GEMM_16_16_16", "M": 16, "N": 16, "K": 16 },
+    { "name": "GEMM_8_8_16",   "M": 8,  "N": 8,  "K": 16 }
+  ]
+}

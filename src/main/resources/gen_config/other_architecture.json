@@ -1,0 +1,89 @@
+{
+  "description": "Targe Benchmark",
+  "configs": [
+    {
+      "_comment": "===== Grouped ReuseB: 32x32x1x1x1 (TPU V2 Baseline) =====",
+      "name": "Grouped_ReuseB_32x32x1x1x1",
+      "arch": "Grouped",
+      "numericType": "Signed",
+      "dataflow": "ReuseB",
+      "dimensions": {
+        "outerPeRow": 32,
+        "outerPeCol": 32,
+        "localVectorPeRow": 1,
+        "localVectorPeCol": 1,
+        "multPerPe": 1
+      },
+      "bitWidth": {
+        "inputA": 8,
+        "inputB": 8
+      },
+      "accumulator": {
+        "needAccumulator": false
+      }
+    },
+    {
+      "_comment": "===== Grouped ReuseB: 1x32x32x1x1 (MEISSA 2020 ICCD) =====",
+      "name": "Grouped_ReuseB_1x32x32x1x1",
+      "arch": "Grouped",
+      "numericType": "Signed",
+      "dataflow": "ReuseB",
+      "dimensions": {
+        "outerPeRow": 1,
+        "outerPeCol": 32,
+        "localVectorPeRow": 32,
+        "localVectorPeCol": 1,
+        "multPerPe": 1
+      },
+      "bitWidth": {
+        "inputA": 8,
+        "inputB": 8
+      },
+      "accumulator": {
+        "needAccumulator": false
+      }
+    },
+    {
+      "_comment": "===== Grouped ReuseB: 4x2x4x4x8 (STA 2020 CAL) Row = 8 =====",
+      "name": "Grouped_ReuseB_4x2x4x4x8",
+      "arch": "Grouped",
+      "numericType": "Signed",
+      "dataflow": "ReuseB",
+      "dimensions": {
+        "outerPeRow": 4,
+        "outerPeCol": 2,
+        "localVectorPeRow": 4,
+        "localVectorPeCol": 4,
+        "multPerPe": 8
+      },
+      "bitWidth": {
+        "inputA": 8,
+        "inputB": 8
+      },
+      "accumulator": {
+        "needAccumulator": false
+      }
+    },
+    {
+      "_comment": "===== Grouped ReuseB: 2x4x4x4x8 (STA 2020 CAL) Row = 4 =====",
+      "name": "Grouped_ReuseB_2x4x4x4x8",
+      "arch": "Grouped",
+      "numericType": "Signed",
+      "dataflow": "ReuseB",
+      "dimensions": {
+        "outerPeRow": 2,
+        "outerPeCol": 4,
+        "localVectorPeRow": 4,
+        "localVectorPeCol": 4,
+        "multPerPe": 8
+      },
+      "bitWidth": {
+        "inputA": 8,
+        "inputB": 8
+      },
+      "accumulator": {
+        "needAccumulator": false
+      }
+    }
+  ]
+}

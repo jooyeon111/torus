@@ -1,0 +1,17 @@
+{
+  "_comment": "The whole ToroidalDualMode surface: the four (config, schedule) combinations of the two plain schedules, the settle-bound stress shapes, and all four mode-switch cases. Every row names its case — for the plain rows that is a check against the matrix, for the switch rows it is also what SELECTS the schedule, since the switch shape files deliberately carry none.",
+  "name": "dual",
+  "runs": [
+    { "config": "5.toroidal_dual_mode.json",      "gemm": "gemm_dual_m1.json",        "case": "dual-gemv-noacc" },
+    { "config": "5.toroidal_dual_mode.json",      "gemm": "gemm_dual_gemm.json",      "case": "dual-gemm-noacc" },
+    { "config": "6.toroidal_dual_mode_acc.json",  "gemm": "gemm_dual_acc.json",       "case": "dual-gemv-acc"   },
+    { "config": "6.toroidal_dual_mode_acc.json",  "gemm": "gemm_dual_gemm_acc.json",  "case": "dual-gemm-acc"   },
+
+    { "config": "5s.toroidal_dual_settle_stress.json", "gemm": "gemm_dual_m1_heavy.json", "case": "dual-gemv-noacc" },
+
+    { "config": "5.toroidal_dual_mode.json",     "gemm": "switch_gemm.json",     "gemv": "switch_gemv.json", "case": "dual-switch-gemm"     },
+    { "config": "5.toroidal_dual_mode.json",     "gemm": "switch_gemm.json",     "gemv": "switch_gemv.json", "case": "dual-switch-gemv"     },
+    { "config": "6.toroidal_dual_mode_acc.json", "gemm": "switch_gemm_acc.json", "gemv": "switch_gemv.json", "case": "dual-switch-gemm-acc" },
+    { "config": "6.toroidal_dual_mode_acc.json", "gemm": "switch_gemm_acc.json", "gemv": "switch_gemv.json", "case": "dual-switch-gemv-acc" }
+  ]
+}

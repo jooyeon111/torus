@@ -1,0 +1,6 @@
+{
+  "_comment": "The GEMM half of an ACCUMULATOR mode-switch run. ONE entry, no \"schedule\": see switch_gemm.json. It is a separate file from switch_gemm.json because the accumulator adds a constraint the no-acc switch does not have — a phase must be exactly ONE resident panel, so the shape must cut one panel of at most numSlots slots on every config in 6.toroidal_dual_mode_acc.json. M = N = 4 is the largest square that does: the ReuseB configs cut n-tiles at totalVectorPeCol (4 on the base/sub-row/dot-product entries) and the broadcast entries cut the swept dimension at freeDimensionSize = 4, and ReuseA is the mirror of both. K = 16 fills one contraction pass on every entry (contractionPassDepth is 4 except on the multPerPe = 4 one, where it is 16) and stays within each maxContractionSize.",
+  "gemms": [
+    { "name": "SWITCH_GEMM_ACC_4_4_16", "M": 4, "N": 4, "K": 16 }
+  ]
+}

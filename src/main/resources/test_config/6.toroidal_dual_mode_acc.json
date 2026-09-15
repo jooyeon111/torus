@@ -1,0 +1,132 @@
+{
+  "description": "Toroidal DualMode ReuseB / ReuseA WITH the two-big-SRAM accumulator — low-M GEMV accumulated across K-passes in the AccSram instead of in software. In dual mode the accumulator's FREE output dimension is N (M is 1), so freeDimensionSize is the number of STREAM STEPS per K-pass and one resident panel spans freeDimensionSize * numPorts outputs; maxContractionSize is the largest K, i.e. contractionPasses = maxContractionSize / contractionPassDepth K-passes accumulate into each slot. freeDimensionSize is PROVISIONED HERE SO ONE PANEL COVERS THE WHOLE N of gemm_dual_acc.json (span 64): the stationary A slice is loaded once per (panel, K-pass), so a panel that spans all of N makes it once per K-pass and the whole N streams against each loaded slice. A smaller depth still runs — it just reloads A per panel — and a GEMM N below the span leaves the tail slots zero-padded.",
+  "configs": [
+
+    {
+      "_comment": "===== ReuseB base: 4 ports, kTile=4, depth=16 (panel span N=64), 4 K-passes =====",
+      "name": "Toroidal_DualMode_Acc_ReuseB_Base",
+      "arch": "ToroidalDualMode",
+      "numericType": "Signed",
+      "dataflow": "ReuseB",
+      "dimensions": {
+        "outerPeRow": 4,
+        "outerPeCol": 4,
+        "localVectorPeRow": 1,
+        "localVectorPeCol": 1,
+        "multPerPe": 1
+      },
+      "bitWidth": { "inputA": 8, "inputB": 8 },
+      "accumulator": {
+        "needAccumulator": true,
+        "freeDimensionSize": 16,
+        "maxContractionSize": 16
+      }
+    },
+
+    {
+      "_comment": "===== ReuseB cluster rows: lvR=2, 4 ports, kTile=4, depth=16 (panel span N=64), 4 K-passes =====",
+      "name": "Toroidal_DualMode_Acc_ReuseB_SubRow",
+      "arch": "ToroidalDualMode",
+      "numericType": "Signed",
+      "dataflow": "ReuseB",
+      "dimensions": {
+        "outerPeRow": 2,
+        "outerPeCol": 4,
+        "localVectorPeRow": 2,
+        "localVectorPeCol": 1,
+        "multPerPe": 1
+      },
+      "bitWidth": { "inputA": 8, "inputB": 8 },
+      "accumulator": {
+        "needAccumulator": true,
+        "freeDimensionSize": 16,
+        "maxContractionSize": 16
+      }
+    },
+
+    {
+      "_comment": "===== ReuseB broadcast: lvC=4, 16 ports, kTile=4, depth=4 (panel span N=64), 4 K-passes =====",
+      "name": "Toroidal_DualMode_Acc_ReuseB_Broadcast",
+      "arch": "ToroidalDualMode",
+      "numericType": "Signed",
+      "dataflow": "ReuseB",
+      "dimensions": {
+        "outerPeRow": 4,
+        "outerPeCol": 4,
+        "localVectorPeRow": 1,
+        "localVectorPeCol": 4,
+        "multPerPe": 1
+      },
+      "bitWidth": { "inputA": 8, "inputB": 8 },
+      "accumulator": {
+        "needAccumulator": true,
+        "freeDimensionSize": 4,
+        "maxContractionSize": 16
+      }
+    },
+
+    {
+      "_comment": "===== ReuseB dot product: mult=4, 4 ports, kTile=16, depth=16 (panel span N=64), 4 K-passes =====",
+      "name": "Toroidal_DualMode_Acc_ReuseB_DotProduct",
+      "arch": "ToroidalDualMode",
+      "numericType": "Signed",
+      "dataflow": "ReuseB",
+      "dimensions": {
+        "outerPeRow": 4,
+        "outerPeCol": 4,
+        "localVectorPeRow": 1,
+        "localVectorPeCol": 1,
+        "multPerPe": 4
+      },
+      "bitWidth": { "inputA": 8, "inputB": 8 },
+      "accumulator": {
+        "needAccumulator": true,
+        "freeDimensionSize": 16,
+        "maxContractionSize": 64
+      }
+    },
+
+    {
+      "_comment": "===== ReuseA base: 4 ports, kTile=4, depth=16 (panel span N=64), 4 K-passes =====",
+      "name": "Toroidal_DualMode_Acc_ReuseA_Base",
+      "arch": "ToroidalDualMode",
+      "numericType": "Signed",
+      "dataflow": "ReuseA",
+      "dimensions": {
+        "outerPeRow": 4,
+        "outerPeCol": 4,
+        "localVectorPeRow": 1,
+        "localVectorPeCol": 1,
+        "multPerPe": 1
+      },
+      "bitWidth": { "inputA": 8, "inputB": 8 },
+      "accumulator": {
+        "needAccumulator": true,
+        "freeDimensionSize": 16,
+        "maxContractionSize": 16
+      }
+    },
+
+    {
+      "_comment": "===== ReuseA broadcast: lvR=4, 16 ports, kTile=4, depth=4 (panel span N=64), 4 K-passes =====",
+      "name": "Toroidal_DualMode_Acc_ReuseA_Broadcast",
+      "arch": "ToroidalDualMode",
+      "numericType": "Signed",
+      "dataflow": "ReuseA",
+      "dimensions": {
+        "outerPeRow": 4,
+        "outerPeCol": 4,
+        "localVectorPeRow": 4,
+        "localVectorPeCol": 1,
+        "multPerPe": 1
+      },
+      "bitWidth": { "inputA": 8, "inputB": 8 },
+      "accumulator": {
+        "needAccumulator": true,
+        "freeDimensionSize": 4,
+        "maxContractionSize": 16
+      }
+    }
+
+  ]
+}

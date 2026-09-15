@@ -1,0 +1,445 @@
+{
+  "description": "Target Benchmark (1024 multipliers) - missing 32-valued localVectorPeCol/multPerPe combos for toroidal_ws and toroidal_ws_dual",
+  "configs": [
+    {
+      "name": "Toroidal_ReuseB_1x4x4x32x2",
+      "arch": "Toroidal",
+      "numericType": "Signed",
+      "dataflow": "ReuseB",
+      "dimensions": {
+        "outerPeRow": 1,
+        "outerPeCol": 4,
+        "localVectorPeRow": 4,
+        "localVectorPeCol": 32,
+        "multPerPe": 2
+      },
+      "bitWidth": {
+        "inputA": 8,
+        "inputB": 8
+      },
+      "accumulator": {
+        "needAccumulator": false
+      }
+    },
+    {
+      "name": "Toroidal_ReuseB_2x4x2x32x2",
+      "arch": "Toroidal",
+      "numericType": "Signed",
+      "dataflow": "ReuseB",
+      "dimensions": {
+        "outerPeRow": 2,
+        "outerPeCol": 4,
+        "localVectorPeRow": 2,
+        "localVectorPeCol": 32,
+        "multPerPe": 2
+      },
+      "bitWidth": {
+        "inputA": 8,
+        "inputB": 8
+      },
+      "accumulator": {
+        "needAccumulator": false
+      }
+    },
+    {
+      "name": "Toroidal_ReuseB_4x4x1x32x2",
+      "arch": "Toroidal",
+      "numericType": "Signed",
+      "dataflow": "ReuseB",
+      "dimensions": {
+        "outerPeRow": 4,
+        "outerPeCol": 4,
+        "localVectorPeRow": 1,
+        "localVectorPeCol": 32,
+        "multPerPe": 2
+      },
+      "bitWidth": {
+        "inputA": 8,
+        "inputB": 8
+      },
+      "accumulator": {
+        "needAccumulator": false
+      }
+    },
+    {
+      "name": "Toroidal_ReuseB_1x4x4x2x32",
+      "arch": "Toroidal",
+      "numericType": "Signed",
+      "dataflow": "ReuseB",
+      "dimensions": {
+        "outerPeRow": 1,
+        "outerPeCol": 4,
+        "localVectorPeRow": 4,
+        "localVectorPeCol": 2,
+        "multPerPe": 32
+      },
+      "bitWidth": {
+        "inputA": 8,
+        "inputB": 8
+      },
+      "accumulator": {
+        "needAccumulator": false
+      }
+    },
+    {
+      "name": "Toroidal_ReuseB_2x4x2x2x32",
+      "arch": "Toroidal",
+      "numericType": "Signed",
+      "dataflow": "ReuseB",
+      "dimensions": {
+        "outerPeRow": 2,
+        "outerPeCol": 4,
+        "localVectorPeRow": 2,
+        "localVectorPeCol": 2,
+        "multPerPe": 32
+      },
+      "bitWidth": {
+        "inputA": 8,
+        "inputB": 8
+      },
+      "accumulator": {
+        "needAccumulator": false
+      }
+    },
+    {
+      "name": "Toroidal_ReuseB_4x4x1x2x32",
+      "arch": "Toroidal",
+      "numericType": "Signed",
+      "dataflow": "ReuseB",
+      "dimensions": {
+        "outerPeRow": 4,
+        "outerPeCol": 4,
+        "localVectorPeRow": 1,
+        "localVectorPeCol": 2,
+        "multPerPe": 32
+      },
+      "bitWidth": {
+        "inputA": 8,
+        "inputB": 8
+      },
+      "accumulator": {
+        "needAccumulator": false
+      }
+    },
+    {
+      "name": "Toroidal_ReuseB_1x2x2x32x8",
+      "arch": "Toroidal",
+      "numericType": "Signed",
+      "dataflow": "ReuseB",
+      "dimensions": {
+        "outerPeRow": 1,
+        "outerPeCol": 2,
+        "localVectorPeRow": 2,
+        "localVectorPeCol": 32,
+        "multPerPe": 8
+      },
+      "bitWidth": {
+        "inputA": 8,
+        "inputB": 8
+      },
+      "accumulator": {
+        "needAccumulator": false
+      }
+    },
+    {
+      "name": "Toroidal_ReuseB_2x2x1x32x8",
+      "arch": "Toroidal",
+      "numericType": "Signed",
+      "dataflow": "ReuseB",
+      "dimensions": {
+        "outerPeRow": 2,
+        "outerPeCol": 2,
+        "localVectorPeRow": 1,
+        "localVectorPeCol": 32,
+        "multPerPe": 8
+      },
+      "bitWidth": {
+        "inputA": 8,
+        "inputB": 8
+      },
+      "accumulator": {
+        "needAccumulator": false
+      }
+    },
+    {
+      "name": "Toroidal_ReuseB_1x2x2x8x32",
+      "arch": "Toroidal",
+      "numericType": "Signed",
+      "dataflow": "ReuseB",
+      "dimensions": {
+        "outerPeRow": 1,
+        "outerPeCol": 2,
+        "localVectorPeRow": 2,
+        "localVectorPeCol": 8,
+        "multPerPe": 32
+      },
+      "bitWidth": {
+        "inputA": 8,
+        "inputB": 8
+      },
+      "accumulator": {
+        "needAccumulator": false
+      }
+    },
+    {
+      "name": "Toroidal_ReuseB_2x2x1x8x32",
+      "arch": "Toroidal",
+      "numericType": "Signed",
+      "dataflow": "ReuseB",
+      "dimensions": {
+        "outerPeRow": 2,
+        "outerPeCol": 2,
+        "localVectorPeRow": 1,
+        "localVectorPeCol": 8,
+        "multPerPe": 32
+      },
+      "bitWidth": {
+        "inputA": 8,
+        "inputB": 8
+      },
+      "accumulator": {
+        "needAccumulator": false
+      }
+    },
+    {
+      "name": "Toroidal_ReuseB_1x1x1x32x32",
+      "arch": "Toroidal",
+      "numericType": "Signed",
+      "dataflow": "ReuseB",
+      "dimensions": {
+        "outerPeRow": 1,
+        "outerPeCol": 1,
+        "localVectorPeRow": 1,
+        "localVectorPeCol": 32,
+        "multPerPe": 32
+      },
+      "bitWidth": {
+        "inputA": 8,
+        "inputB": 8
+      },
+      "accumulator": {
+        "needAccumulator": false
+      }
+    },
+    {
+      "name": "Toroidal_DualMode_1x4x4x32x2",
+      "arch": "ToroidalDualMode",
+      "numericType": "Signed",
+      "dataflow": "ReuseB",
+      "dimensions": {
+        "outerPeRow": 1,
+        "outerPeCol": 4,
+        "localVectorPeRow": 4,
+        "localVectorPeCol": 32,
+        "multPerPe": 2
+      },
+      "bitWidth": {
+        "inputA": 8,
+        "inputB": 8
+      },
+      "accumulator": {
+        "needAccumulator": false
+      }
+    },
+    {
+      "name": "Toroidal_DualMode_2x4x2x32x2",
+      "arch": "ToroidalDualMode",
+      "numericType": "Signed",
+      "dataflow": "ReuseB",
+      "dimensions": {
+        "outerPeRow": 2,
+        "outerPeCol": 4,
+        "localVectorPeRow": 2,
+        "localVectorPeCol": 32,
+        "multPerPe": 2
+      },
+      "bitWidth": {
+        "inputA": 8,
+        "inputB": 8
+      },
+      "accumulator": {
+        "needAccumulator": false
+      }
+    },
+    {
+      "name": "Toroidal_DualMode_4x4x1x32x2",
+      "arch": "ToroidalDualMode",
+      "numericType": "Signed",
+      "dataflow": "ReuseB",
+      "dimensions": {
+        "outerPeRow": 4,
+        "outerPeCol": 4,
+        "localVectorPeRow": 1,
+        "localVectorPeCol": 32,
+        "multPerPe": 2
+      },
+      "bitWidth": {
+        "inputA": 8,
+        "inputB": 8
+      },
+      "accumulator": {
+        "needAccumulator": false
+      }
+    },
+    {
+      "name": "Toroidal_DualMode_1x4x4x2x32",
+      "arch": "ToroidalDualMode",
+      "numericType": "Signed",
+      "dataflow": "ReuseB",
+      "dimensions": {
+        "outerPeRow": 1,
+        "outerPeCol": 4,
+        "localVectorPeRow": 4,
+        "localVectorPeCol": 2,
+        "multPerPe": 32
+      },
+      "bitWidth": {
+        "inputA": 8,
+        "inputB": 8
+      },
+      "accumulator": {
+        "needAccumulator": false
+      }
+    },
+    {
+      "name": "Toroidal_DualMode_2x4x2x2x32",
+      "arch": "ToroidalDualMode",
+      "numericType": "Signed",
+      "dataflow": "ReuseB",
+      "dimensions": {
+        "outerPeRow": 2,
+        "outerPeCol": 4,
+        "localVectorPeRow": 2,
+        "localVectorPeCol": 2,
+        "multPerPe": 32
+      },
+      "bitWidth": {
+        "inputA": 8,
+        "inputB": 8
+      },
+      "accumulator": {
+        "needAccumulator": false
+      }
+    },
+    {
+      "name": "Toroidal_DualMode_4x4x1x2x32",
+      "arch": "ToroidalDualMode",
+      "numericType": "Signed",
+      "dataflow": "ReuseB",
+      "dimensions": {
+        "outerPeRow": 4,
+        "outerPeCol": 4,
+        "localVectorPeRow": 1,
+        "localVectorPeCol": 2,
+        "multPerPe": 32
+      },
+      "bitWidth": {
+        "inputA": 8,
+        "inputB": 8
+      },
+      "accumulator": {
+        "needAccumulator": false
+      }
+    },
+    {
+      "name": "Toroidal_DualMode_1x2x2x32x8",
+      "arch": "ToroidalDualMode",
+      "numericType": "Signed",
+      "dataflow": "ReuseB",
+      "dimensions": {
+        "outerPeRow": 1,
+        "outerPeCol": 2,
+        "localVectorPeRow": 2,
+        "localVectorPeCol": 32,
+        "multPerPe": 8
+      },
+      "bitWidth": {
+        "inputA": 8,
+        "inputB": 8
+      },
+      "accumulator": {
+        "needAccumulator": false
+      }
+    },
+    {
+      "name": "Toroidal_DualMode_2x2x1x32x8",
+      "arch": "ToroidalDualMode",
+      "numericType": "Signed",
+      "dataflow": "ReuseB",
+      "dimensions": {
+        "outerPeRow": 2,
+        "outerPeCol": 2,
+        "localVectorPeRow": 1,
+        "localVectorPeCol": 32,
+        "multPerPe": 8
+      },
+      "bitWidth": {
+        "inputA": 8,
+        "inputB": 8
+      },
+      "accumulator": {
+        "needAccumulator": false
+      }
+    },
+    {
+      "name": "Toroidal_DualMode_1x2x2x8x32",
+      "arch": "ToroidalDualMode",
+      "numericType": "Signed",
+      "dataflow": "ReuseB",
+      "dimensions": {
+        "outerPeRow": 1,
+        "outerPeCol": 2,
+        "localVectorPeRow": 2,
+        "localVectorPeCol": 8,
+        "multPerPe": 32
+      },
+      "bitWidth": {
+        "inputA": 8,
+        "inputB": 8
+      },
+      "accumulator": {
+        "needAccumulator": false
+      }
+    },
+    {
+      "name": "Toroidal_DualMode_2x2x1x8x32",
+      "arch": "ToroidalDualMode",
+      "numericType": "Signed",
+      "dataflow": "ReuseB",
+      "dimensions": {
+        "outerPeRow": 2,
+        "outerPeCol": 2,
+        "localVectorPeRow": 1,
+        "localVectorPeCol": 8,
+        "multPerPe": 32
+      },
+      "bitWidth": {
+        "inputA": 8,
+        "inputB": 8
+      },
+      "accumulator": {
+        "needAccumulator": false
+      }
+    },
+    {
+      "name": "Toroidal_DualMode_1x1x1x32x32",
+      "arch": "ToroidalDualMode",
+      "numericType": "Signed",
+      "dataflow": "ReuseB",
+      "dimensions": {
+        "outerPeRow": 1,
+        "outerPeCol": 1,
+        "localVectorPeRow": 1,
+        "localVectorPeCol": 32,
+        "multPerPe": 32
+      },
+      "bitWidth": {
+        "inputA": 8,
+        "inputB": 8
+      },
+      "accumulator": {
+        "needAccumulator": false
+      }
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+{
+  "_comment": "The GEMM half of a runtime mode-switch run. ONE entry on purpose: the switch, not the tiling, is what is under test. It carries NO \"schedule\" — the suite row (or the --case target) says a switch is being run, so this stays an ordinary shape any other case can reuse. K = 16 fills one contraction pass for every config in 5.toroidal_dual_mode.json and 6.toroidal_dual_mode_acc.json, which is the precondition that makes the switch safe: a partly loaded stationary chain would leave the previous mode's values in the unwritten slots.",
+  "gemms": [
+    { "name": "SWITCH_GEMM_16_16_16", "M": 16, "N": 16, "K": 16 }
+  ]
+}

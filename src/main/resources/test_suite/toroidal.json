@@ -1,0 +1,18 @@
+{
+  "_comment": "The Toroidal rows. Same config files as grouped.json — the row's \"case\" picks the Toroidal entries out of them — plus two extra shapes that exist only for ReuseC. Toroidal ReuseC's contraction bound is the wrap's CLUSTER-loop length (outerPeRow * multPerPe), which broadcast does NOT inflate, so it is 4 on 3.sub_array and 16 on 4.sub_array_dot_product while the ReuseA/ReuseB rows there run K = 16 and 64. Those two rows would otherwise be skipped by the no-accumulator contraction guard, taking the whole broadcast ReuseC surface with them.",
+  "name": "toroidal",
+  "runs": [
+    { "config": "1.conventional_systolic_array.json",                 "gemm": "gemm(4,4,4).json",       "case": "toroidal-noacc" },
+    { "config": "2.dot_product_systolic_array.json",                  "gemm": "gemm(4,4,16).json",      "case": "toroidal-noacc" },
+    { "config": "3.sub_array_systolic_array.json",                    "gemm": "gemm(16,16,16).json",    "case": "toroidal-noacc" },
+    { "config": "4.sub_array_dot_product_systolic_array.json",        "gemm": "gemm(16,16,64).json",    "case": "toroidal-noacc" },
+
+    { "config": "3.sub_array_systolic_array.json",                    "gemm": "gemm(16,16,4).json",     "case": "toroidal-noacc" },
+    { "config": "4.sub_array_dot_product_systolic_array.json",        "gemm": "gemm(16,16,16).json",    "case": "toroidal-noacc" },
+
+    { "config": "1.conventional_systolic_array_acc.json",             "gemm": "gemm(16,16,16).json",    "case": "toroidal-acc"   },
+    { "config": "2.dot_product_systolic_array_acc.json",              "gemm": "gemm(16,16,16).json",    "case": "toroidal-acc"   },
+    { "config": "3.sub_array_systolic_array_acc.json",                "gemm": "gemm(32,32,32).json",    "case": "toroidal-acc"   },
+    { "config": "4.sub_array_dot_product_systolic_array_acc.json",    "gemm": "gemm(256,256,256).json", "case": "toroidal-acc"   }
+  ]
+}

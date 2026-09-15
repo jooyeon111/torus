@@ -1,0 +1,7 @@
+{
+  "_comment": "Normal-GEMM (M > 1) shapes for the Toroidal DualMode array driven through the STOCK tiled schedule WITH the two-big-SRAM accumulator. K is 16 in both: it must be at least one full contraction pass (contractionPassDepth is 16 for the multPerPe=4 config) because a shorter K makes GoldenMatrix's reuse-padding replicate the streamed tile's K columns, so the array contracts the same K several times — a pre-existing stock-schedule limit, reproducible on the unwrapped ToroidalSystolicArray, not a dual-mode one. K must also stay within each config's maxContractionSize (16, or 64 for the dot-product config) so the accumulator data width covers the summed passes. 16x16 fills every config's tile capacity exactly; 8x8 leaves the broadcast configs partly filled (padding path).",
+  "gemms": [
+    { "name": "GEMM_16_16_16", "M": 16, "N": 16, "K": 16 },
+    { "name": "GEMM_8_8_16",   "M": 8,  "N": 8,  "K": 16 }
+  ]
+}

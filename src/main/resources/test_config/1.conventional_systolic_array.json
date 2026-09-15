@@ -1,0 +1,122 @@
+{
+  "description": "Square 4x4 scalar systolic array with Grouped and Toroidal configs",
+  "configs": [
+
+    {
+      "_comment": "===== Grouped ReuseA: Scalar =====",
+      "name": "Grouped_ReuseA_Scalar",
+      "arch": "Grouped",
+      "numericType": "Signed",
+      "dataflow": "ReuseA",
+      "dimensions": {
+        "outerPeRow": 4,
+        "outerPeCol": 4,
+        "localVectorPeRow": 1,
+        "localVectorPeCol": 1,
+        "multPerPe": 1
+      },
+      "bitWidth": { "inputA": 8, "inputB": 8 },
+      "accumulator": {
+        "needAccumulator": false
+      }
+    },
+
+    {
+      "_comment": "===== Grouped ReuseB: Scalar =====",
+      "name": "Grouped_ReuseB",
+      "arch": "Grouped",
+      "numericType": "Signed",
+      "dataflow": "ReuseB",
+      "dimensions": {
+        "outerPeRow": 4,
+        "outerPeCol": 4,
+        "localVectorPeRow": 1,
+        "localVectorPeCol": 1,
+        "multPerPe": 1
+      },
+      "bitWidth": { "inputA": 8, "inputB": 8 },
+      "accumulator": {
+        "needAccumulator": false
+      }
+    },
+
+    {
+      "_comment": "===== Grouped ReuseC: Scalar =====",
+      "name": "Grouped_ReuseC",
+      "arch": "Grouped",
+      "numericType": "Signed",
+      "dataflow": "ReuseC",
+      "dimensions": {
+        "outerPeRow": 4,
+        "outerPeCol": 4,
+        "localVectorPeRow": 1,
+        "localVectorPeCol": 1,
+        "multPerPe": 1
+      },
+      "bitWidth": { "inputA": 8, "inputB": 8 },
+      "accumulator": {
+        "needAccumulator": false,
+        "maxContractionSize": 4
+      }
+    },
+
+    {
+      "_comment": "===== Toroidal ReuseA: Scalar =====",
+      "name": "Toroidal_ReuseA",
+      "arch": "Toroidal",
+      "numericType": "Signed",
+      "dataflow": "ReuseA",
+      "dimensions": {
+        "outerPeRow": 4,
+        "outerPeCol": 4,
+        "localVectorPeRow": 1,
+        "localVectorPeCol": 1,
+        "multPerPe": 1
+      },
+      "bitWidth": { "inputA": 8, "inputB": 8 },
+      "accumulator": {
+        "needAccumulator": false
+      }
+    },
+
+    {
+      "_comment": "===== Toroidal ReuseB: Scalar =====",
+      "name": "Toroidal_ReuseB",
+      "arch": "Toroidal",
+      "numericType": "Signed",
+      "dataflow": "ReuseB",
+      "dimensions": {
+        "outerPeRow": 4,
+        "outerPeCol": 4,
+        "localVectorPeRow": 1,
+        "localVectorPeCol": 1,
+        "multPerPe": 1
+      },
+      "bitWidth": { "inputA": 8, "inputB": 8 },
+      "accumulator": {
+        "needAccumulator": false
+      }
+    },
+
+
+    {
+      "_comment": "===== Toroidal ReuseC: Scalar =====",
+      "name": "Toroidal_ReuseC",
+      "arch": "Toroidal",
+      "numericType": "Signed",
+      "dataflow": "ReuseC",
+      "dimensions": {
+        "outerPeRow": 4,
+        "outerPeCol": 4,
+        "localVectorPeRow": 1,
+        "localVectorPeCol": 1,
+        "multPerPe": 1
+      },
+      "bitWidth": { "inputA": 8, "inputB": 8 },
+      "accumulator": {
+        "needAccumulator": false
+      }
+    }
+
+  ]
+}

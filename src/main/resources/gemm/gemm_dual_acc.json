@@ -1,0 +1,9 @@
+{
+  "_comment": "Dual-mode shapes for the SRAM-accumulator path. M is always 1. N no longer has to tile the accumulator panel: the psumValid burst is fixed at freeDimensionSize cycles, but a partly-filled panel just streams zeros into its tail slots, so any N runs. The configs in 6.toroidal_dual_mode_acc.json provision a panel span of 64, so N=32 and N=64 are a SINGLE resident panel (one stationary load per K-pass — the whole N streams against each loaded A slice) while N=128 keeps the multi-panel path covered (A reloaded per panel). K sweeps one pass, a few passes, and the full provisioned maxContractionSize.",
+  "gemms": [
+    { "name": "GEMM_1_32_4",   "M": 1, "N": 32,  "K": 4  },
+    { "name": "GEMM_1_32_16",  "M": 1, "N": 32,  "K": 16 },
+    { "name": "GEMM_1_64_16",  "M": 1, "N": 64,  "K": 16 },
+    { "name": "GEMM_1_128_16", "M": 1, "N": 128, "K": 16 }
+  ]
+}

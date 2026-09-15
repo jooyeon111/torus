@@ -1,0 +1,725 @@
+{
+  "description": "Target Benchmark (1024 multipliers, localVectorPeCol unrestricted) - Toroidal DualMode variant, based on toroidal_ws_small.json",
+  "configs": [
+    {
+      "name": "Toroidal_DualMode_1x32x32x1x1",
+      "arch": "ToroidalDualMode",
+      "numericType": "Signed",
+      "dataflow": "ReuseB",
+      "dimensions": {
+        "outerPeRow": 1,
+        "outerPeCol": 32,
+        "localVectorPeRow": 32,
+        "localVectorPeCol": 1,
+        "multPerPe": 1
+      },
+      "bitWidth": {
+        "inputA": 8,
+        "inputB": 8
+      },
+      "accumulator": {
+        "needAccumulator": false
+      }
+    },
+    {
+      "name": "Toroidal_DualMode_2x32x16x1x1",
+      "arch": "ToroidalDualMode",
+      "numericType": "Signed",
+      "dataflow": "ReuseB",
+      "dimensions": {
+        "outerPeRow": 2,
+        "outerPeCol": 32,
+        "localVectorPeRow": 16,
+        "localVectorPeCol": 1,
+        "multPerPe": 1
+      },
+      "bitWidth": {
+        "inputA": 8,
+        "inputB": 8
+      },
+      "accumulator": {
+        "needAccumulator": false
+      }
+    },
+    {
+      "name": "Toroidal_DualMode_4x32x8x1x1",
+      "arch": "ToroidalDualMode",
+      "numericType": "Signed",
+      "dataflow": "ReuseB",
+      "dimensions": {
+        "outerPeRow": 4,
+        "outerPeCol": 32,
+        "localVectorPeRow": 8,
+        "localVectorPeCol": 1,
+        "multPerPe": 1
+      },
+      "bitWidth": {
+        "inputA": 8,
+        "inputB": 8
+      },
+      "accumulator": {
+        "needAccumulator": false
+      }
+    },
+    {
+      "name": "Toroidal_DualMode_8x32x4x1x1",
+      "arch": "ToroidalDualMode",
+      "numericType": "Signed",
+      "dataflow": "ReuseB",
+      "dimensions": {
+        "outerPeRow": 8,
+        "outerPeCol": 32,
+        "localVectorPeRow": 4,
+        "localVectorPeCol": 1,
+        "multPerPe": 1
+      },
+      "bitWidth": {
+        "inputA": 8,
+        "inputB": 8
+      },
+      "accumulator": {
+        "needAccumulator": false
+      }
+    },
+    {
+      "name": "Toroidal_DualMode_16x32x2x1x1",
+      "arch": "ToroidalDualMode",
+      "numericType": "Signed",
+      "dataflow": "ReuseB",
+      "dimensions": {
+        "outerPeRow": 16,
+        "outerPeCol": 32,
+        "localVectorPeRow": 2,
+        "localVectorPeCol": 1,
+        "multPerPe": 1
+      },
+      "bitWidth": {
+        "inputA": 8,
+        "inputB": 8
+      },
+      "accumulator": {
+        "needAccumulator": false
+      }
+    },
+    {
+      "name": "Toroidal_DualMode_32x32x1x1x1",
+      "arch": "ToroidalDualMode",
+      "numericType": "Signed",
+      "dataflow": "ReuseB",
+      "dimensions": {
+        "outerPeRow": 32,
+        "outerPeCol": 32,
+        "localVectorPeRow": 1,
+        "localVectorPeCol": 1,
+        "multPerPe": 1
+      },
+      "bitWidth": {
+        "inputA": 8,
+        "inputB": 8
+      },
+      "accumulator": {
+        "needAccumulator": false
+      }
+    },
+    {
+      "name": "Toroidal_DualMode_1x16x16x4x1",
+      "arch": "ToroidalDualMode",
+      "numericType": "Signed",
+      "dataflow": "ReuseB",
+      "dimensions": {
+        "outerPeRow": 1,
+        "outerPeCol": 16,
+        "localVectorPeRow": 16,
+        "localVectorPeCol": 4,
+        "multPerPe": 1
+      },
+      "bitWidth": {
+        "inputA": 8,
+        "inputB": 8
+      },
+      "accumulator": {
+        "needAccumulator": false
+      }
+    },
+    {
+      "name": "Toroidal_DualMode_2x16x8x4x1",
+      "arch": "ToroidalDualMode",
+      "numericType": "Signed",
+      "dataflow": "ReuseB",
+      "dimensions": {
+        "outerPeRow": 2,
+        "outerPeCol": 16,
+        "localVectorPeRow": 8,
+        "localVectorPeCol": 4,
+        "multPerPe": 1
+      },
+      "bitWidth": {
+        "inputA": 8,
+        "inputB": 8
+      },
+      "accumulator": {
+        "needAccumulator": false
+      }
+    },
+    {
+      "name": "Toroidal_DualMode_4x16x4x4x1",
+      "arch": "ToroidalDualMode",
+      "numericType": "Signed",
+      "dataflow": "ReuseB",
+      "dimensions": {
+        "outerPeRow": 4,
+        "outerPeCol": 16,
+        "localVectorPeRow": 4,
+        "localVectorPeCol": 4,
+        "multPerPe": 1
+      },
+      "bitWidth": {
+        "inputA": 8,
+        "inputB": 8
+      },
+      "accumulator": {
+        "needAccumulator": false
+      }
+    },
+    {
+      "name": "Toroidal_DualMode_8x16x2x4x1",
+      "arch": "ToroidalDualMode",
+      "numericType": "Signed",
+      "dataflow": "ReuseB",
+      "dimensions": {
+        "outerPeRow": 8,
+        "outerPeCol": 16,
+        "localVectorPeRow": 2,
+        "localVectorPeCol": 4,
+        "multPerPe": 1
+      },
+      "bitWidth": {
+        "inputA": 8,
+        "inputB": 8
+      },
+      "accumulator": {
+        "needAccumulator": false
+      }
+    },
+    {
+      "name": "Toroidal_DualMode_16x16x1x4x1",
+      "arch": "ToroidalDualMode",
+      "numericType": "Signed",
+      "dataflow": "ReuseB",
+      "dimensions": {
+        "outerPeRow": 16,
+        "outerPeCol": 16,
+        "localVectorPeRow": 1,
+        "localVectorPeCol": 4,
+        "multPerPe": 1
+      },
+      "bitWidth": {
+        "inputA": 8,
+        "inputB": 8
+      },
+      "accumulator": {
+        "needAccumulator": false
+      }
+    },
+    {
+      "name": "Toroidal_DualMode_1x8x8x16x1",
+      "arch": "ToroidalDualMode",
+      "numericType": "Signed",
+      "dataflow": "ReuseB",
+      "dimensions": {
+        "outerPeRow": 1,
+        "outerPeCol": 8,
+        "localVectorPeRow": 8,
+        "localVectorPeCol": 16,
+        "multPerPe": 1
+      },
+      "bitWidth": {
+        "inputA": 8,
+        "inputB": 8
+      },
+      "accumulator": {
+        "needAccumulator": false
+      }
+    },
+    {
+      "name": "Toroidal_DualMode_2x8x4x16x1",
+      "arch": "ToroidalDualMode",
+      "numericType": "Signed",
+      "dataflow": "ReuseB",
+      "dimensions": {
+        "outerPeRow": 2,
+        "outerPeCol": 8,
+        "localVectorPeRow": 4,
+        "localVectorPeCol": 16,
+        "multPerPe": 1
+      },
+      "bitWidth": {
+        "inputA": 8,
+        "inputB": 8
+      },
+      "accumulator": {
+        "needAccumulator": false
+      }
+    },
+    {
+      "name": "Toroidal_DualMode_4x8x2x16x1",
+      "arch": "ToroidalDualMode",
+      "numericType": "Signed",
+      "dataflow": "ReuseB",
+      "dimensions": {
+        "outerPeRow": 4,
+        "outerPeCol": 8,
+        "localVectorPeRow": 2,
+        "localVectorPeCol": 16,
+        "multPerPe": 1
+      },
+      "bitWidth": {
+        "inputA": 8,
+        "inputB": 8
+      },
+      "accumulator": {
+        "needAccumulator": false
+      }
+    },
+    {
+      "name": "Toroidal_DualMode_8x8x1x16x1",
+      "arch": "ToroidalDualMode",
+      "numericType": "Signed",
+      "dataflow": "ReuseB",
+      "dimensions": {
+        "outerPeRow": 8,
+        "outerPeCol": 8,
+        "localVectorPeRow": 1,
+        "localVectorPeCol": 16,
+        "multPerPe": 1
+      },
+      "bitWidth": {
+        "inputA": 8,
+        "inputB": 8
+      },
+      "accumulator": {
+        "needAccumulator": false
+      }
+    },
+    {
+      "name": "Toroidal_DualMode_1x16x16x1x4",
+      "arch": "ToroidalDualMode",
+      "numericType": "Signed",
+      "dataflow": "ReuseB",
+      "dimensions": {
+        "outerPeRow": 1,
+        "outerPeCol": 16,
+        "localVectorPeRow": 16,
+        "localVectorPeCol": 1,
+        "multPerPe": 4
+      },
+      "bitWidth": {
+        "inputA": 8,
+        "inputB": 8
+      },
+      "accumulator": {
+        "needAccumulator": false
+      }
+    },
+    {
+      "name": "Toroidal_DualMode_2x16x8x1x4",
+      "arch": "ToroidalDualMode",
+      "numericType": "Signed",
+      "dataflow": "ReuseB",
+      "dimensions": {
+        "outerPeRow": 2,
+        "outerPeCol": 16,
+        "localVectorPeRow": 8,
+        "localVectorPeCol": 1,
+        "multPerPe": 4
+      },
+      "bitWidth": {
+        "inputA": 8,
+        "inputB": 8
+      },
+      "accumulator": {
+        "needAccumulator": false
+      }
+    },
+    {
+      "name": "Toroidal_DualMode_4x16x4x1x4",
+      "arch": "ToroidalDualMode",
+      "numericType": "Signed",
+      "dataflow": "ReuseB",
+      "dimensions": {
+        "outerPeRow": 4,
+        "outerPeCol": 16,
+        "localVectorPeRow": 4,
+        "localVectorPeCol": 1,
+        "multPerPe": 4
+      },
+      "bitWidth": {
+        "inputA": 8,
+        "inputB": 8
+      },
+      "accumulator": {
+        "needAccumulator": false
+      }
+    },
+    {
+      "name": "Toroidal_DualMode_8x16x2x1x4",
+      "arch": "ToroidalDualMode",
+      "numericType": "Signed",
+      "dataflow": "ReuseB",
+      "dimensions": {
+        "outerPeRow": 8,
+        "outerPeCol": 16,
+        "localVectorPeRow": 2,
+        "localVectorPeCol": 1,
+        "multPerPe": 4
+      },
+      "bitWidth": {
+        "inputA": 8,
+        "inputB": 8
+      },
+      "accumulator": {
+        "needAccumulator": false
+      }
+    },
+    {
+      "name": "Toroidal_DualMode_16x16x1x1x4",
+      "arch": "ToroidalDualMode",
+      "numericType": "Signed",
+      "dataflow": "ReuseB",
+      "dimensions": {
+        "outerPeRow": 16,
+        "outerPeCol": 16,
+        "localVectorPeRow": 1,
+        "localVectorPeCol": 1,
+        "multPerPe": 4
+      },
+      "bitWidth": {
+        "inputA": 8,
+        "inputB": 8
+      },
+      "accumulator": {
+        "needAccumulator": false
+      }
+    },
+    {
+      "name": "Toroidal_DualMode_1x8x8x4x4",
+      "arch": "ToroidalDualMode",
+      "numericType": "Signed",
+      "dataflow": "ReuseB",
+      "dimensions": {
+        "outerPeRow": 1,
+        "outerPeCol": 8,
+        "localVectorPeRow": 8,
+        "localVectorPeCol": 4,
+        "multPerPe": 4
+      },
+      "bitWidth": {
+        "inputA": 8,
+        "inputB": 8
+      },
+      "accumulator": {
+        "needAccumulator": false
+      }
+    },
+    {
+      "name": "Toroidal_DualMode_2x8x4x4x4",
+      "arch": "ToroidalDualMode",
+      "numericType": "Signed",
+      "dataflow": "ReuseB",
+      "dimensions": {
+        "outerPeRow": 2,
+        "outerPeCol": 8,
+        "localVectorPeRow": 4,
+        "localVectorPeCol": 4,
+        "multPerPe": 4
+      },
+      "bitWidth": {
+        "inputA": 8,
+        "inputB": 8
+      },
+      "accumulator": {
+        "needAccumulator": false
+      }
+    },
+    {
+      "name": "Toroidal_DualMode_4x8x2x4x4",
+      "arch": "ToroidalDualMode",
+      "numericType": "Signed",
+      "dataflow": "ReuseB",
+      "dimensions": {
+        "outerPeRow": 4,
+        "outerPeCol": 8,
+        "localVectorPeRow": 2,
+        "localVectorPeCol": 4,
+        "multPerPe": 4
+      },
+      "bitWidth": {
+        "inputA": 8,
+        "inputB": 8
+      },
+      "accumulator": {
+        "needAccumulator": false
+      }
+    },
+    {
+      "name": "Toroidal_DualMode_8x8x1x4x4",
+      "arch": "ToroidalDualMode",
+      "numericType": "Signed",
+      "dataflow": "ReuseB",
+      "dimensions": {
+        "outerPeRow": 8,
+        "outerPeCol": 8,
+        "localVectorPeRow": 1,
+        "localVectorPeCol": 4,
+        "multPerPe": 4
+      },
+      "bitWidth": {
+        "inputA": 8,
+        "inputB": 8
+      },
+      "accumulator": {
+        "needAccumulator": false
+      }
+    },
+    {
+      "name": "Toroidal_DualMode_1x4x4x16x4",
+      "arch": "ToroidalDualMode",
+      "numericType": "Signed",
+      "dataflow": "ReuseB",
+      "dimensions": {
+        "outerPeRow": 1,
+        "outerPeCol": 4,
+        "localVectorPeRow": 4,
+        "localVectorPeCol": 16,
+        "multPerPe": 4
+      },
+      "bitWidth": {
+        "inputA": 8,
+        "inputB": 8
+      },
+      "accumulator": {
+        "needAccumulator": false
+      }
+    },
+    {
+      "name": "Toroidal_DualMode_2x4x2x16x4",
+      "arch": "ToroidalDualMode",
+      "numericType": "Signed",
+      "dataflow": "ReuseB",
+      "dimensions": {
+        "outerPeRow": 2,
+        "outerPeCol": 4,
+        "localVectorPeRow": 2,
+        "localVectorPeCol": 16,
+        "multPerPe": 4
+      },
+      "bitWidth": {
+        "inputA": 8,
+        "inputB": 8
+      },
+      "accumulator": {
+        "needAccumulator": false
+      }
+    },
+    {
+      "name": "Toroidal_DualMode_4x4x1x16x4",
+      "arch": "ToroidalDualMode",
+      "numericType": "Signed",
+      "dataflow": "ReuseB",
+      "dimensions": {
+        "outerPeRow": 4,
+        "outerPeCol": 4,
+        "localVectorPeRow": 1,
+        "localVectorPeCol": 16,
+        "multPerPe": 4
+      },
+      "bitWidth": {
+        "inputA": 8,
+        "inputB": 8
+      },
+      "accumulator": {
+        "needAccumulator": false
+      }
+    },
+    {
+      "name": "Toroidal_DualMode_1x8x8x1x16",
+      "arch": "ToroidalDualMode",
+      "numericType": "Signed",
+      "dataflow": "ReuseB",
+      "dimensions": {
+        "outerPeRow": 1,
+        "outerPeCol": 8,
+        "localVectorPeRow": 8,
+        "localVectorPeCol": 1,
+        "multPerPe": 16
+      },
+      "bitWidth": {
+        "inputA": 8,
+        "inputB": 8
+      },
+      "accumulator": {
+        "needAccumulator": false
+      }
+    },
+    {
+      "name": "Toroidal_DualMode_2x8x4x1x16",
+      "arch": "ToroidalDualMode",
+      "numericType": "Signed",
+      "dataflow": "ReuseB",
+      "dimensions": {
+        "outerPeRow": 2,
+        "outerPeCol": 8,
+        "localVectorPeRow": 4,
+        "localVectorPeCol": 1,
+        "multPerPe": 16
+      },
+      "bitWidth": {
+        "inputA": 8,
+        "inputB": 8
+      },
+      "accumulator": {
+        "needAccumulator": false
+      }
+    },
+    {
+      "name": "Toroidal_DualMode_4x8x2x1x16",
+      "arch": "ToroidalDualMode",
+      "numericType": "Signed",
+      "dataflow": "ReuseB",
+      "dimensions": {
+        "outerPeRow": 4,
+        "outerPeCol": 8,
+        "localVectorPeRow": 2,
+        "localVectorPeCol": 1,
+        "multPerPe": 16
+      },
+      "bitWidth": {
+        "inputA": 8,
+        "inputB": 8
+      },
+      "accumulator": {
+        "needAccumulator": false
+      }
+    },
+    {
+      "name": "Toroidal_DualMode_8x8x1x1x16",
+      "arch": "ToroidalDualMode",
+      "numericType": "Signed",
+      "dataflow": "ReuseB",
+      "dimensions": {
+        "outerPeRow": 8,
+        "outerPeCol": 8,
+        "localVectorPeRow": 1,
+        "localVectorPeCol": 1,
+        "multPerPe": 16
+      },
+      "bitWidth": {
+        "inputA": 8,
+        "inputB": 8
+      },
+      "accumulator": {
+        "needAccumulator": false
+      }
+    },
+    {
+      "name": "Toroidal_DualMode_1x4x4x4x16",
+      "arch": "ToroidalDualMode",
+      "numericType": "Signed",
+      "dataflow": "ReuseB",
+      "dimensions": {
+        "outerPeRow": 1,
+        "outerPeCol": 4,
+        "localVectorPeRow": 4,
+        "localVectorPeCol": 4,
+        "multPerPe": 16
+      },
+      "bitWidth": {
+        "inputA": 8,
+        "inputB": 8
+      },
+      "accumulator": {
+        "needAccumulator": false
+      }
+    },
+    {
+      "name": "Toroidal_DualMode_2x4x2x4x16",
+      "arch": "ToroidalDualMode",
+      "numericType": "Signed",
+      "dataflow": "ReuseB",
+      "dimensions": {
+        "outerPeRow": 2,
+        "outerPeCol": 4,
+        "localVectorPeRow": 2,
+        "localVectorPeCol": 4,
+        "multPerPe": 16
+      },
+      "bitWidth": {
+        "inputA": 8,
+        "inputB": 8
+      },
+      "accumulator": {
+        "needAccumulator": false
+      }
+    },
+    {
+      "name": "Toroidal_DualMode_4x4x1x4x16",
+      "arch": "ToroidalDualMode",
+      "numericType": "Signed",
+      "dataflow": "ReuseB",
+      "dimensions": {
+        "outerPeRow": 4,
+        "outerPeCol": 4,
+        "localVectorPeRow": 1,
+        "localVectorPeCol": 4,
+        "multPerPe": 16
+      },
+      "bitWidth": {
+        "inputA": 8,
+        "inputB": 8
+      },
+      "accumulator": {
+        "needAccumulator": false
+      }
+    },
+    {
+      "name": "Toroidal_DualMode_1x2x2x16x16",
+      "arch": "ToroidalDualMode",
+      "numericType": "Signed",
+      "dataflow": "ReuseB",
+      "dimensions": {
+        "outerPeRow": 1,
+        "outerPeCol": 2,
+        "localVectorPeRow": 2,
+        "localVectorPeCol": 16,
+        "multPerPe": 16
+      },
+      "bitWidth": {
+        "inputA": 8,
+        "inputB": 8
+      },
+      "accumulator": {
+        "needAccumulator": false
+      }
+    },
+    {
+      "name": "Toroidal_DualMode_2x2x1x16x16",
+      "arch": "ToroidalDualMode",
+      "numericType": "Signed",
+      "dataflow": "ReuseB",
+      "dimensions": {
+        "outerPeRow": 2,
+        "outerPeCol": 2,
+        "localVectorPeRow": 1,
+        "localVectorPeCol": 16,
+        "multPerPe": 16
+      },
+      "bitWidth": {
+        "inputA": 8,
+        "inputB": 8
+      },
+      "accumulator": {
+        "needAccumulator": false
+      }
+    }
+  ]
+}

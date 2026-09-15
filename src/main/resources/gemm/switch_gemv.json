@@ -1,0 +1,6 @@
+{
+  "_comment": "The GEMV half of a runtime mode-switch run — the second phase's shape, which the runner used to invent for itself from a private DualStreamSteps = 4 and two Matrix.random calls. ONE entry, no \"schedule\": see switch_gemm.json. M is 1 (the GEMV schedule's hard requirement). K = 4 is the SMALLEST contraction pass any dual config has (kTile = chainLen * multPerPe is 4, 8 or 16 across 5.toroidal_dual_mode.json and 6.toroidal_dual_mode_acc.json), and a switch phase may not reset between K-tiles, so 4 is the K that runs on all of them; a deeper config simply loads the unused chain slots with zeros, which still writes the WHOLE chain and so keeps the property the switch depends on. N = 16 sits inside every accumulator config's panel span (the narrowest entry in 6.toroidal_dual_mode_acc.json spans 64), so one panel covers the whole phase.",
+  "gemms": [
+    { "name": "SWITCH_GEMV_1_16_4", "M": 1, "N": 16, "K": 4 }
+  ]
+}

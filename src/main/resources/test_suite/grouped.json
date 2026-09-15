@@ -1,0 +1,15 @@
+{
+  "_comment": "The Grouped rows of the coverage matrix. The config files are organised by ARRAY STYLE (scalar / dot-product / sub-array / sub-array dot-product) and each holds both fabrics, so the row's \"case\" is what picks the Grouped entries out of them — no config file has to be duplicated per case. Each pair's K is exactly one contraction pass: a no-accumulator array emits one partial sum per pass and has nothing to sum them with.",
+  "name": "grouped",
+  "runs": [
+    { "config": "1.conventional_systolic_array.json",                 "gemm": "gemm(4,4,4).json",       "case": "grouped-noacc" },
+    { "config": "2.dot_product_systolic_array.json",                  "gemm": "gemm(4,4,16).json",      "case": "grouped-noacc" },
+    { "config": "3.sub_array_systolic_array.json",                    "gemm": "gemm(16,16,16).json",    "case": "grouped-noacc" },
+    { "config": "4.sub_array_dot_product_systolic_array.json",        "gemm": "gemm(16,16,64).json",    "case": "grouped-noacc" },
+
+    { "config": "1.conventional_systolic_array_acc.json",             "gemm": "gemm(16,16,16).json",    "case": "grouped-acc"   },
+    { "config": "2.dot_product_systolic_array_acc.json",              "gemm": "gemm(16,16,16).json",    "case": "grouped-acc"   },
+    { "config": "3.sub_array_systolic_array_acc.json",                "gemm": "gemm(32,32,32).json",    "case": "grouped-acc"   },
+    { "config": "4.sub_array_dot_product_systolic_array_acc.json",    "gemm": "gemm(256,256,256).json", "case": "grouped-acc"   }
+  ]
+}

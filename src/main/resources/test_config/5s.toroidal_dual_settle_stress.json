@@ -1,0 +1,142 @@
+{
+  "description": "Toroidal DualMode settle-bound stress configs. The stationary weight-load settle is chainLen - outerPe*, so it is ZERO whenever the released local dimension is 1 (outerPe* == chainLen) — the stock 5.toroidal_dual_mode.json configs are therefore a weak test of the settle bound. These configs push the other way: one outer cluster with all the chain depth inside it (lvR/lvC = chainLen), which maximises settle (= chainLen - 1) and so exposes any off-by-one in the bound. ReuseB contracts down rows (chainLen = outerPeRow*localPeRow, outer = outerPeRow); ReuseA is the column mirror.",
+  "configs": [
+
+    {
+      "_comment": "===== ReuseB: 1 cluster row, lvR=4 -> chainLen=4, outer=1, settle=3 =====",
+      "name": "Toroidal_DualSettle_ReuseB_lvR4",
+      "arch": "ToroidalDualMode",
+      "numericType": "Signed",
+      "dataflow": "ReuseB",
+      "dimensions": {
+        "outerPeRow": 1,
+        "outerPeCol": 4,
+        "localVectorPeRow": 4,
+        "localVectorPeCol": 1,
+        "multPerPe": 1
+      },
+      "bitWidth": { "inputA": 8, "inputB": 8 },
+      "accumulator": { "needAccumulator": false }
+    },
+
+    {
+      "_comment": "===== ReuseB: 1 cluster row, lvR=8 -> chainLen=8, outer=1, settle=7 =====",
+      "name": "Toroidal_DualSettle_ReuseB_lvR8",
+      "arch": "ToroidalDualMode",
+      "numericType": "Signed",
+      "dataflow": "ReuseB",
+      "dimensions": {
+        "outerPeRow": 1,
+        "outerPeCol": 8,
+        "localVectorPeRow": 8,
+        "localVectorPeCol": 1,
+        "multPerPe": 1
+      },
+      "bitWidth": { "inputA": 8, "inputB": 8 },
+      "accumulator": { "needAccumulator": false }
+    },
+
+    {
+      "_comment": "===== ReuseB: 2 cluster rows, lvR=4 -> chainLen=8, outer=2, settle=6 =====",
+      "name": "Toroidal_DualSettle_ReuseB_2x_lvR4",
+      "arch": "ToroidalDualMode",
+      "numericType": "Signed",
+      "dataflow": "ReuseB",
+      "dimensions": {
+        "outerPeRow": 2,
+        "outerPeCol": 8,
+        "localVectorPeRow": 4,
+        "localVectorPeCol": 1,
+        "multPerPe": 1
+      },
+      "bitWidth": { "inputA": 8, "inputB": 8 },
+      "accumulator": { "needAccumulator": false }
+    },
+
+    {
+      "_comment": "===== ReuseB: lvR=4 + mult=2 -> chainLen=4, outer=1, settle=3, kTile=8 =====",
+      "name": "Toroidal_DualSettle_ReuseB_lvR4_DotProduct",
+      "arch": "ToroidalDualMode",
+      "numericType": "Signed",
+      "dataflow": "ReuseB",
+      "dimensions": {
+        "outerPeRow": 1,
+        "outerPeCol": 4,
+        "localVectorPeRow": 4,
+        "localVectorPeCol": 1,
+        "multPerPe": 2
+      },
+      "bitWidth": { "inputA": 8, "inputB": 8 },
+      "accumulator": { "needAccumulator": false }
+    },
+
+    {
+      "_comment": "===== ReuseA mirror: 1 cluster col, lvC=4 -> chainLen=4, outer=1, settle=3 =====",
+      "name": "Toroidal_DualSettle_ReuseA_lvC4",
+      "arch": "ToroidalDualMode",
+      "numericType": "Signed",
+      "dataflow": "ReuseA",
+      "dimensions": {
+        "outerPeRow": 4,
+        "outerPeCol": 1,
+        "localVectorPeRow": 1,
+        "localVectorPeCol": 4,
+        "multPerPe": 1
+      },
+      "bitWidth": { "inputA": 8, "inputB": 8 },
+      "accumulator": { "needAccumulator": false }
+    },
+
+    {
+      "_comment": "===== ReuseA mirror: 1 cluster col, lvC=8 -> chainLen=8, outer=1, settle=7 =====",
+      "name": "Toroidal_DualSettle_ReuseA_lvC8",
+      "arch": "ToroidalDualMode",
+      "numericType": "Signed",
+      "dataflow": "ReuseA",
+      "dimensions": {
+        "outerPeRow": 8,
+        "outerPeCol": 1,
+        "localVectorPeRow": 1,
+        "localVectorPeCol": 8,
+        "multPerPe": 1
+      },
+      "bitWidth": { "inputA": 8, "inputB": 8 },
+      "accumulator": { "needAccumulator": false }
+    },
+
+    {
+      "_comment": "===== ReuseA mirror: 2 cluster cols, lvC=4 -> chainLen=8, outer=2, settle=6 =====",
+      "name": "Toroidal_DualSettle_ReuseA_2x_lvC4",
+      "arch": "ToroidalDualMode",
+      "numericType": "Signed",
+      "dataflow": "ReuseA",
+      "dimensions": {
+        "outerPeRow": 8,
+        "outerPeCol": 2,
+        "localVectorPeRow": 1,
+        "localVectorPeCol": 4,
+        "multPerPe": 1
+      },
+      "bitWidth": { "inputA": 8, "inputB": 8 },
+      "accumulator": { "needAccumulator": false }
+    },
+
+    {
+      "_comment": "===== ReuseA mirror: lvC=4 + mult=2 -> chainLen=4, outer=1, settle=3, kTile=8 =====",
+      "name": "Toroidal_DualSettle_ReuseA_lvC4_DotProduct",
+      "arch": "ToroidalDualMode",
+      "numericType": "Signed",
+      "dataflow": "ReuseA",
+      "dimensions": {
+        "outerPeRow": 4,
+        "outerPeCol": 1,
+        "localVectorPeRow": 1,
+        "localVectorPeCol": 4,
+        "multPerPe": 2
+      },
+      "bitWidth": { "inputA": 8, "inputB": 8 },
+      "accumulator": { "needAccumulator": false }
+    }
+
+  ]
+}

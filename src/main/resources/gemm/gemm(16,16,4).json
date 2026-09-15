@@ -1,0 +1,6 @@
+{
+  "_comment": "16x16 output at K = 4 — ONE contraction pass for the Toroidal ReuseC configs of 3.sub_array_systolic_array.json, whose bound is the wrap's CLUSTER-loop length (outerPeRow * multPerPe = 4), not the physical row count that broadcast inflates. gemm(16,16,16).json is four passes on those configs, and a no-accumulator array emits one partial sum per pass with nothing to sum them, so the dispatcher skips it (doc/dataflow-driver-test-matrix.md §5.2, §5.4). This file is what keeps the Toroidal ReuseC broadcast shapes — the folded/strided output windows §4.4 measured — covered at a K the hardware can actually complete. 16x16 still fills every broadcast config's output tile exactly.",
+  "gemms": [
+    { "name": "GEMM_16_16_4", "M": 16, "N": 16, "K": 4 }
+  ]
+}

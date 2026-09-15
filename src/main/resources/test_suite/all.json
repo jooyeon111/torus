@@ -1,0 +1,38 @@
+{
+  "_comment": "Every row of the coverage matrix, so `make test` can report it in full: after a run of this manifest no case may print `0 pass 0 fail 0 skip`, which is the state a flat verdict list cannot show at all. It is the concatenation of grouped.json, toroidal.json and dual.json, which stay separate so a fabric can still be swept on its own. Note that a config file appears under two cases (once Grouped, once Toroidal) without any sim running twice: the row's case selects which of the file's entries it covers.",
+  "name": "all",
+  "runs": [
+    { "config": "1.conventional_systolic_array.json",                 "gemm": "gemm(4,4,4).json",       "case": "grouped-noacc" },
+    { "config": "2.dot_product_systolic_array.json",                  "gemm": "gemm(4,4,16).json",      "case": "grouped-noacc" },
+    { "config": "3.sub_array_systolic_array.json",                    "gemm": "gemm(16,16,16).json",    "case": "grouped-noacc" },
+    { "config": "4.sub_array_dot_product_systolic_array.json",        "gemm": "gemm(16,16,64).json",    "case": "grouped-noacc" },
+
+    { "config": "1.conventional_systolic_array_acc.json",             "gemm": "gemm(16,16,16).json",    "case": "grouped-acc"   },
+    { "config": "2.dot_product_systolic_array_acc.json",              "gemm": "gemm(16,16,16).json",    "case": "grouped-acc"   },
+    { "config": "3.sub_array_systolic_array_acc.json",                "gemm": "gemm(32,32,32).json",    "case": "grouped-acc"   },
+    { "config": "4.sub_array_dot_product_systolic_array_acc.json",    "gemm": "gemm(256,256,256).json", "case": "grouped-acc"   },
+
+    { "config": "1.conventional_systolic_array.json",                 "gemm": "gemm(4,4,4).json",       "case": "toroidal-noacc" },
+    { "config": "2.dot_product_systolic_array.json",                  "gemm": "gemm(4,4,16).json",      "case": "toroidal-noacc" },
+    { "config": "3.sub_array_systolic_array.json",                    "gemm": "gemm(16,16,16).json",    "case": "toroidal-noacc" },
+    { "config": "4.sub_array_dot_product_systolic_array.json",        "gemm": "gemm(16,16,64).json",    "case": "toroidal-noacc" },
+    { "config": "3.sub_array_systolic_array.json",                    "gemm": "gemm(16,16,4).json",     "case": "toroidal-noacc" },
+    { "config": "4.sub_array_dot_product_systolic_array.json",        "gemm": "gemm(16,16,16).json",    "case": "toroidal-noacc" },
+
+    { "config": "1.conventional_systolic_array_acc.json",             "gemm": "gemm(16,16,16).json",    "case": "toroidal-acc"   },
+    { "config": "2.dot_product_systolic_array_acc.json",              "gemm": "gemm(16,16,16).json",    "case": "toroidal-acc"   },
+    { "config": "3.sub_array_systolic_array_acc.json",                "gemm": "gemm(32,32,32).json",    "case": "toroidal-acc"   },
+    { "config": "4.sub_array_dot_product_systolic_array_acc.json",    "gemm": "gemm(256,256,256).json", "case": "toroidal-acc"   },
+
+    { "config": "5.toroidal_dual_mode.json",      "gemm": "gemm_dual_m1.json",        "case": "dual-gemv-noacc" },
+    { "config": "5.toroidal_dual_mode.json",      "gemm": "gemm_dual_gemm.json",      "case": "dual-gemm-noacc" },
+    { "config": "6.toroidal_dual_mode_acc.json",  "gemm": "gemm_dual_acc.json",       "case": "dual-gemv-acc"   },
+    { "config": "6.toroidal_dual_mode_acc.json",  "gemm": "gemm_dual_gemm_acc.json",  "case": "dual-gemm-acc"   },
+    { "config": "5s.toroidal_dual_settle_stress.json", "gemm": "gemm_dual_m1_heavy.json", "case": "dual-gemv-noacc" },
+
+    { "config": "5.toroidal_dual_mode.json",     "gemm": "switch_gemm.json",     "gemv": "switch_gemv.json", "case": "dual-switch-gemm"     },
+    { "config": "5.toroidal_dual_mode.json",     "gemm": "switch_gemm.json",     "gemv": "switch_gemv.json", "case": "dual-switch-gemv"     },
+    { "config": "6.toroidal_dual_mode_acc.json", "gemm": "switch_gemm_acc.json", "gemv": "switch_gemv.json", "case": "dual-switch-gemm-acc" },
+    { "config": "6.toroidal_dual_mode_acc.json", "gemm": "switch_gemm_acc.json", "gemv": "switch_gemv.json", "case": "dual-switch-gemv-acc" }
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "_comment": "Heavier dual-mode (low-M GEMV) shapes for the adder-tree reorg validation. M is always 1. K spans many k-tiles for every config's kTile (4/8/16), and N includes a non-multiple of every port count so the padded tail path is stressed over long streams.",
+  "gemms": [
+    { "name": "GEMM_1_100_40",  "M": 1, "N": 100, "K": 40 },
+    { "name": "GEMM_1_256_64",  "M": 1, "N": 256, "K": 64 }
+  ]
+}

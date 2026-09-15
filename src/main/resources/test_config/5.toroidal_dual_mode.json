@@ -1,0 +1,210 @@
+{
+  "description": "Toroidal DualMode ReuseB and ReuseA, no accumulator — low-M GEMV: A[1xK] is broadcast-loaded through the stationary path and B streams on the per-VectorPE second-stream lanes (inputA2 for ReuseB, inputB2 for ReuseA). The two dataflows mirror: ReuseB contracts down rows and outputs on columns (requires outerPeRow * localVectorPeRow == outerPeCol, localVectorPeCol released), ReuseA contracts across columns and outputs on rows (requires outerPeCol * localVectorPeCol == outerPeRow, localVectorPeRow released). The ReuseA block below is the reflection of the ReuseB block.",
+  "configs": [
+
+    {
+      "_comment": "===== base: standalone VectorPE, lvR=lvC=1, mult=1 (kTile=4, 4 ports) =====",
+      "name": "Toroidal_DualMode_ReuseB_Base",
+      "arch": "ToroidalDualMode",
+      "numericType": "Signed",
+      "dataflow": "ReuseB",
+      "dimensions": {
+        "outerPeRow": 4,
+        "outerPeCol": 4,
+        "localVectorPeRow": 1,
+        "localVectorPeCol": 1,
+        "multPerPe": 1
+      },
+      "bitWidth": { "inputA": 8, "inputB": 8 },
+      "accumulator": { "needAccumulator": false }
+    },
+
+    {
+      "_comment": "===== cluster rows: lvR=2 (kTile=4, 4 ports) =====",
+      "name": "Toroidal_DualMode_ReuseB_SubRow",
+      "arch": "ToroidalDualMode",
+      "numericType": "Signed",
+      "dataflow": "ReuseB",
+      "dimensions": {
+        "outerPeRow": 2,
+        "outerPeCol": 4,
+        "localVectorPeRow": 2,
+        "localVectorPeCol": 1,
+        "multPerPe": 1
+      },
+      "bitWidth": { "inputA": 8, "inputB": 8 },
+      "accumulator": { "needAccumulator": false }
+    },
+
+    {
+      "_comment": "===== broadcast released dim: lvC=4 (kTile=4, 16 ports) =====",
+      "name": "Toroidal_DualMode_ReuseB_Broadcast",
+      "arch": "ToroidalDualMode",
+      "numericType": "Signed",
+      "dataflow": "ReuseB",
+      "dimensions": {
+        "outerPeRow": 4,
+        "outerPeCol": 4,
+        "localVectorPeRow": 1,
+        "localVectorPeCol": 4,
+        "multPerPe": 1
+      },
+      "bitWidth": { "inputA": 8, "inputB": 8 },
+      "accumulator": { "needAccumulator": false }
+    },
+
+    {
+      "_comment": "===== cluster rows + broadcast: lvR=2, lvC=2 (kTile=4, 8 ports) =====",
+      "name": "Toroidal_DualMode_ReuseB_SubRow_Broadcast",
+      "arch": "ToroidalDualMode",
+      "numericType": "Signed",
+      "dataflow": "ReuseB",
+      "dimensions": {
+        "outerPeRow": 2,
+        "outerPeCol": 4,
+        "localVectorPeRow": 2,
+        "localVectorPeCol": 2,
+        "multPerPe": 1
+      },
+      "bitWidth": { "inputA": 8, "inputB": 8 },
+      "accumulator": { "needAccumulator": false }
+    },
+
+    {
+      "_comment": "===== dot product: mult=4, lvR=lvC=1 (kTile=16, 4 ports) =====",
+      "name": "Toroidal_DualMode_ReuseB_DotProduct",
+      "arch": "ToroidalDualMode",
+      "numericType": "Signed",
+      "dataflow": "ReuseB",
+      "dimensions": {
+        "outerPeRow": 4,
+        "outerPeCol": 4,
+        "localVectorPeRow": 1,
+        "localVectorPeCol": 1,
+        "multPerPe": 4
+      },
+      "bitWidth": { "inputA": 8, "inputB": 8 },
+      "accumulator": { "needAccumulator": false }
+    },
+
+    {
+      "_comment": "===== dot product + cluster rows + broadcast: lvR=2, lvC=2, mult=2 (kTile=8, 8 ports) =====",
+      "name": "Toroidal_DualMode_ReuseB_SubRow_Broadcast_DotProduct",
+      "arch": "ToroidalDualMode",
+      "numericType": "Signed",
+      "dataflow": "ReuseB",
+      "dimensions": {
+        "outerPeRow": 2,
+        "outerPeCol": 4,
+        "localVectorPeRow": 2,
+        "localVectorPeCol": 2,
+        "multPerPe": 2
+      },
+      "bitWidth": { "inputA": 8, "inputB": 8 },
+      "accumulator": { "needAccumulator": false }
+    },
+
+    {
+      "_comment": "===== ReuseA base: standalone VectorPE, lvR=lvC=1, mult=1 (kTile=4, 4 ports) =====",
+      "name": "Toroidal_DualMode_ReuseA_Base",
+      "arch": "ToroidalDualMode",
+      "numericType": "Signed",
+      "dataflow": "ReuseA",
+      "dimensions": {
+        "outerPeRow": 4,
+        "outerPeCol": 4,
+        "localVectorPeRow": 1,
+        "localVectorPeCol": 1,
+        "multPerPe": 1
+      },
+      "bitWidth": { "inputA": 8, "inputB": 8 },
+      "accumulator": { "needAccumulator": false }
+    },
+
+    {
+      "_comment": "===== ReuseA cluster columns: lvC=2 (kTile=4, 4 ports) =====",
+      "name": "Toroidal_DualMode_ReuseA_SubCol",
+      "arch": "ToroidalDualMode",
+      "numericType": "Signed",
+      "dataflow": "ReuseA",
+      "dimensions": {
+        "outerPeRow": 4,
+        "outerPeCol": 2,
+        "localVectorPeRow": 1,
+        "localVectorPeCol": 2,
+        "multPerPe": 1
+      },
+      "bitWidth": { "inputA": 8, "inputB": 8 },
+      "accumulator": { "needAccumulator": false }
+    },
+
+    {
+      "_comment": "===== ReuseA broadcast released dim: lvR=4 (kTile=4, 16 ports) =====",
+      "name": "Toroidal_DualMode_ReuseA_Broadcast",
+      "arch": "ToroidalDualMode",
+      "numericType": "Signed",
+      "dataflow": "ReuseA",
+      "dimensions": {
+        "outerPeRow": 4,
+        "outerPeCol": 4,
+        "localVectorPeRow": 4,
+        "localVectorPeCol": 1,
+        "multPerPe": 1
+      },
+      "bitWidth": { "inputA": 8, "inputB": 8 },
+      "accumulator": { "needAccumulator": false }
+    },
+
+    {
+      "_comment": "===== ReuseA cluster columns + broadcast: lvR=2, lvC=2 (kTile=4, 8 ports) =====",
+      "name": "Toroidal_DualMode_ReuseA_SubCol_Broadcast",
+      "arch": "ToroidalDualMode",
+      "numericType": "Signed",
+      "dataflow": "ReuseA",
+      "dimensions": {
+        "outerPeRow": 4,
+        "outerPeCol": 2,
+        "localVectorPeRow": 2,
+        "localVectorPeCol": 2,
+        "multPerPe": 1
+      },
+      "bitWidth": { "inputA": 8, "inputB": 8 },
+      "accumulator": { "needAccumulator": false }
+    },
+
+    {
+      "_comment": "===== ReuseA dot product: mult=4, lvR=lvC=1 (kTile=16, 4 ports) =====",
+      "name": "Toroidal_DualMode_ReuseA_DotProduct",
+      "arch": "ToroidalDualMode",
+      "numericType": "Signed",
+      "dataflow": "ReuseA",
+      "dimensions": {
+        "outerPeRow": 4,
+        "outerPeCol": 4,
+        "localVectorPeRow": 1,
+        "localVectorPeCol": 1,
+        "multPerPe": 4
+      },
+      "bitWidth": { "inputA": 8, "inputB": 8 },
+      "accumulator": { "needAccumulator": false }
+    },
+
+    {
+      "_comment": "===== ReuseA dot product + cluster columns + broadcast: lvR=2, lvC=2, mult=2 (kTile=8, 8 ports) =====",
+      "name": "Toroidal_DualMode_ReuseA_SubCol_Broadcast_DotProduct",
+      "arch": "ToroidalDualMode",
+      "numericType": "Signed",
+      "dataflow": "ReuseA",
+      "dimensions": {
+        "outerPeRow": 4,
+        "outerPeCol": 2,
+        "localVectorPeRow": 2,
+        "localVectorPeCol": 2,
+        "multPerPe": 2
+      },
+      "bitWidth": { "inputA": 8, "inputB": 8 },
+      "accumulator": { "needAccumulator": false }
+    }
+
+  ]
+}

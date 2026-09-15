@@ -1,0 +1,8 @@
+{
+  "_comment": "Dual-mode (low-M GEMV) shapes: M is always 1. K sweeps below / at / above one array pass (kTile) so the multi-K-tile path is covered, and N sweeps below / at / above one cycle's port count including a non-multiple, so the streamed N padding is covered.",
+  "gemms": [
+    { "name": "GEMM_1_4_4",   "M": 1, "N": 4,  "K": 4  },
+    { "name": "GEMM_1_10_6",  "M": 1, "N": 10, "K": 6  },
+    { "name": "GEMM_1_32_16", "M": 1, "N": 32, "K": 16 }
+  ]
+}
